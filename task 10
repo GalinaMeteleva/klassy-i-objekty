@@ -1,0 +1,116 @@
+package bean;
+
+public class Airline {
+	
+	private String placeArrival;
+	private int flightNumber;
+	private String planeType;
+	private int hourDeparture;
+	private int minuteDeparture;
+	private String day;
+	
+	public String a;
+	public String b;
+	public int c;
+	
+	public String getPlaceArrival()  {
+		return placeArrival;
+	}
+	public void setPlaceArrival(String placeArrival)  {
+		this.placeArrival = placeArrival;
+	}
+	public int getFlightNumber()  {
+		return flightNumber;
+	}
+	public void setFligthNumber(int flightNumber)  {
+		this.flightNumber = fligthNumber;
+	}
+	public String getPlaneType()  {
+		return planeType;
+	}
+	public void setPlaneType(String planeType)  {
+		this.planeType = planeType;
+	}
+	public int getHourDeparture()  {
+		return hourDeparture;
+	}
+	public void setHourDeparture(int hourDeparture)  {
+		this.hourDeparture = hourDeparture;
+	}
+	public int getMinuteDeparture()  {
+		return minuteDeparture;
+	}
+	public void setMinuteDeparture(int minuteDeparture)  {
+		this.minuteDeparture = minuteDeparture;
+	}
+	public String getDay()  {
+		return day;
+	}
+	public void setDay(String day)  {
+		this.day = day;
+	}
+ 		
+	public static void main(String[] args)  {
+		
+		Airline[] airline = new Airline[2];
+		
+		airline[0] = new Airline();
+		airline[0].placeArrival = "Kaliningrad";
+		airline[0].flightNumber = 2916;
+		airline[0].planeType = "Boeing 737-500";
+		airline[0].hourDeparture = 14;
+		airline[0].minuteDeparture = 30;
+		airline[0].day = "Monday";
+		
+		airline[1] = new Airline();
+		airline[1].placeArrival = "St.Petersburg";
+		airline[1].flightNumber = 393;
+		airline[1].planeType = "Boeing 737-300";
+		airline[1].hourDeparture = 15;
+		airline[1].minuteDeparture = 30;
+		airline[1].day = "Tuesday";
+	}
+	public String toString()  {
+		return placeArrival + " " + fligthNumber + " " + planeType + " " + hourDeparture + " " + minuteDeparture + " " + day;		
+	}
+}
+
+package logic;
+
+import bean.Airline;
+
+public class AirlineLogic {
+	
+	public void findFligthsPlaceArrival()  {
+		
+		int i = 0;
+		for(i = 0; i < Airline.length; i++)  {
+			if(airline[i].placeArrival == a)  {
+				System.out.print(airline[i]);
+			}
+		}
+		System.out.println("Это список рейсов для заданного пункта назначения");
+	}
+	public void findFlightsDay()  {
+		
+		int i = 0;
+		for(i = 0; i < Airline.length; i++)  {
+			if(airline[i].day == b)  {
+				System.out.print(airline[i]);
+			}
+		}
+		System.out.println("Это список рейсов для заданного для недели");
+	}
+	public void findFligthsTimeDeparture()  {
+		
+		int i = 0;
+		for(i = 0; i < Airline.length; i++)  {
+			if((airline[i].day == c) && (airline[i].hourDeparture > c))  {
+				System.out.print(airline[i]);
+			}
+		}
+		System.out.println("Это список рейсов для заданного дня недели, время вылета которых больше заданного");
+	}
+}
+
+
