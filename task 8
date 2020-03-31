@@ -1,0 +1,105 @@
+package bean;
+
+public class Customer {
+	
+	private int id;
+	private String name;
+	private String surname;
+	private String address;
+	private int cardNumber;
+	private int accountNumber;
+	
+	public int a = 35;
+	public int b = 50;
+	
+	public int getId()  {
+		return id;
+	}
+	public void setId(int id)  {
+		this.id = id;
+	}
+	public String getName()  {
+		return name;
+	}
+	public void setName(String name)  {
+		this.name = name;
+	}
+	public String getSurname()  {
+		return surname;
+	}
+	public void setSurname(String surname)  {
+		this.surname = surname;
+	}
+	public String getAddress()  {
+		return address;
+	}
+	public void setAddress(String address)  {
+		this.address = address;
+	}
+	public int getCardNumber()  {
+		return cardNumber;
+	}
+	public void setCardNumber(int cardNumber)  {
+		this.cardNumber = cardNumber;
+	}
+	public int getAccountNumber()  {
+		return accountNumber;
+	}
+	public void setAccountNumber(int accountNumber)  {
+		this.accountNumber = accountNumber;
+	}
+	
+	public static void main(String[] args)  {
+		
+		Customer[] customer = new Customer[2];
+		
+		customer[0] = new Customer();
+		customer[0].id = 11;
+		customer[0].name = "Иван";
+		customer[0].surname = "Иванов";
+		customer[0].address = "Минск";
+		customer[0].cardNumber = 21;
+		customer[0].accountNumber = 31;
+		
+		customer[1] = new Customer();
+		customer[1].id = 12;
+		customer[1].name = "Пётр";
+		customer[1].surname = "Петров";
+		customer[1].address = "Минск";
+		customer[1].cardNumber = 41;
+		customer[1].accountNumber = 32;
+	}
+	public String toString()  {
+		return id + " " + name + " " + surname + " " + address + " " + cardNumber + " " + accountNumber;
+	}
+}
+
+package logic;
+
+import java.util.Comparator;
+import java.util.Arrays;
+import bean.Customer;
+
+public class CustomerLogic implements Comparable<Customer>  {
+	
+	public static Comparator<Customer> SurnameComparator = new Comparator<Customer> ()  {
+	
+		int i = 0;
+		for(i = 0; i < Customer.length; i++)  {
+			public int compare(Customer customer[i], Customer customer[i+1])  {
+				return customer[i].getSurname().compareTo(customer[i+1].getSurname());
+			}
+		}
+	    Arrays.sort(Customer, Customer.SurnameComparator);
+	    System.out.println("Список покупателей в алфавитном порядке: /n" + Arrays.toString(Customer));
+	}
+	public void findCardNumbers()  {
+		
+		int i = 0;
+		for(i = 0; i < Customer.length; i++)  {
+			if((customer[i].cardNumber > a) && (customer[i].cardNumber < b))  {
+				System.out.print(book[i]);
+			}
+		}
+		System.out.println("Это список покупателей, у которых номер кредитной карточки находится в заданном интервале");
+	}
